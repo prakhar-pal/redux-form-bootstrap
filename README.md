@@ -5,16 +5,24 @@ Dependecies are listed as below -
 * react
 * redux-form
 * reactstrap (optional, meaning other styles can also be used)
+* classnames
   
 # Components
 
 These components will have some common props and respective similar behaviour in regards to how they are used. These props are listed as below -
-#### `label: any`  
+#### `label?: any`  
     refers to valid JSX that appears on top of the respective form field.
-#### `noLabel: boolean` 
+#### `noLabel?: boolean` 
      whether to show label, the string prop. It is a master check, meaning even if label is present, if noLabel is defined then that behaviour will take precedence.
 #### `handleSave?: Function`
     function provided by consumer component, to dictate saving behaviour.
+#### `onSave?: Function`
+    informs the consumer component when the value in store changes. This is only done when it is changed via the wrapper component, if it is changed via redux-form's functions, it WILL NOT relect those changes.
+#### `outermostClass?: string`
+    a string, consisting of CSS classes separated by space.
+#### ``
+#### `disabled?: boolean`
+    to disallow change in current form field.
 
 ## 1. Input
 It will serve as replacement for HTML `input` tag.
@@ -35,8 +43,6 @@ Its expected props are, but not limited to -
     whether it is 'text', 'number' or 'radio' etc.
 #### `default: string & number`
     should be according to type; a string, number etc.
-#### `disabled: boolean`
-    to disable it
 #### `format?: Function`
     format the input in input box
 
@@ -76,7 +82,15 @@ Its expected props is outlined as below -
     a function  that returns data in format of `[...,{ label: string, value: string}, ...]`
 #### `default?: Object`  
     an object in the form of  `{label: string, value: string}`. It sets the default value.
-#### `disabled: boolean`
-     Disables it!
 #### `isClearable?: boolean`
     To allow clearing selected value, it defaults to true.
+
+## 4. TextArea
+
+It will serve as replacement for HTML `textarea` tag.
+
+Its expected props is outlined as below -
+
+#### `default?: string`
+    an string, that is used as default value for textarea.
+#### `isClearable?: boolean`
