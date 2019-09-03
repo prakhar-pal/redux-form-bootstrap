@@ -1,0 +1,50 @@
+{
+  "name": "redux-form-ui-bs",
+  "version": "0.1.0",
+  "description": "Reusable UI components for redux-form, styled in bootstrap",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean:build": "rm -rf build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawki/redux-form-ui-bs.git"
+  },
+  "keywords": [
+    "redux-form",
+    "react",
+    "redux"
+  ],
+  "author": "Prakhar Pal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lawki/redux-form-ui-bs/issues"
+  },
+  "homepage": "https://github.com/lawki/redux-form-ui-bs#readme",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-test-renderer": "^16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts-ts": "^3.1.0",
+    "react-test-renderer": "^16.9.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.24.0",
+    "typescript": "^3.6.2"
+  },
+  "files": [
+    "build"
+  ]
+}

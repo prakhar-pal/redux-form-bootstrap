@@ -13,14 +13,15 @@ These components will have some common props and respective similar behaviour in
 #### `label?: any`  
     refers to valid JSX that appears on top of the respective form field.
 #### `noLabel?: boolean` 
-     whether to show label, the string prop. It is a master check, meaning even if label is present, if noLabel is defined then that behaviour will take precedence.
-#### `handleSave?: Function`
-    function provided by consumer component, to dictate saving behaviour.
+    whether to show label, the string prop. It is a master check, meaning even if label is present, if noLabel is defined then that behaviour will take precedence.
+#### `filter?: Function`
+    function to be provided by consumer component, to dictate saving behaviour.
 #### `onSave?: Function`
-    informs the consumer component when the value in store changes. This is only done when it is changed via the wrapper component, if it is changed via redux-form's functions, it WILL NOT relect those changes.
+    informs the consumer component when the value in store changes.
 #### `outermostClass?: string`
     a string, consisting of CSS classes separated by space.
-#### ``
+#### `fieldClass?: string`
+     a string, consisting of CSS classes separated by space.
 #### `disabled?: boolean`
     to disallow change in current form field.
 
