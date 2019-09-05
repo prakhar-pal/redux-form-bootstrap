@@ -7,8 +7,8 @@
   "jsnext:main": "build/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "clean:build": "rm -rf build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:clean": "rimraf build; npm run build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,21 +30,38 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "^24.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts-ts": "^3.1.0",
     "react-test-renderer": "^16.9.0",
+    "rimraf": "^3.0.0",
     "rollup": "^1.20.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-typescript2": "^0.24.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.6.2"
   },
   "files": [
     "build"
-  ]
+  ],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
+  }
 }
