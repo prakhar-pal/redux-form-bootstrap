@@ -7,8 +7,10 @@
   "jsnext:main": "build/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "build:clean": "rimraf build; npm run build",
-    "test": "jest"
+    "build:clean": "rimraf build && npm run build",
+    "test": "jest",
+    "prepare": "ENV=dev npm run build:clean",
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
