@@ -1,19 +1,15 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import {Input} from 'redux-form-bootstrap';
-function App() {
-  console.log(Input);
+import  routesConfig from './common/routesConfig'
+
+function App (){
   return (
-    <div className="container my-3 mx-auto">
-      <Input
-        type="text"
-        addons={{
-          prepend: ["@",'$'],
-          append: [".com"]
-        }}
-        placeholder="Enter a value"
-      />
-    </div>
+    <BrowserRouter>
+      {routesConfig && Array.isArray(routesConfig) ?
+        routesConfig.map((route,index) => <Route {...route} key={index}/>)
+        : null}
+    </BrowserRouter>
   );
 }
 
