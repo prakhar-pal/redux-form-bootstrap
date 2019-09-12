@@ -1,23 +1,40 @@
 import * as React from 'react';
 import { Input as RsInput, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
-import { BaseProps } from '../../common/interfaces/CommonProps';
+import isEqual from 'lodash.isequal';
+import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 
-export interface InputProps extends BaseProps{
+export interface InputProps extends BaseFieldProps{
     type: string;
-    defaultValue: any;
+    defaultValue?: any;
     addons?: {
         prepend: string[],
         append: string[]
     };
-    input: any;
+
 }
 
 export class Input extends React.Component<InputProps, any>{
 
+    componentDidMount(){
+        const { defaultValue } = this.props;
+        if(defaultValue !== undefined) this.saveToStore(defaultValue);
+    }
+
+    componentDidUpdate(oldProps: InputProps){
+        const { defaultValue } = this.props;
+        if(!isEqual(oldProps.defaultValue, defaultValue)) this.saveToStore(defaultValue);
+    }
+
     affixData = (data: string[], type: "prepend" | "append") => (data && Array.isArray(data) ?
         (<InputGroupAddon addonType={type}>
-            {data.map(d => <InputGroupText>{d}</InputGroupText>)}
+            {data.map((d, index) => <InputGroupText key={index}>{d}</InputGroupText>)}
         </InputGroupAddon>) : null);
+
+    saveToStore = (data: any)=>{
+        const { filter, input } = this.props;
+        data = filter && typeof filter === typeof Function? filter(data): data;
+        input.onChange(data);
+    }
 
     render(){
         const { type, defaultValue, addons, ...rest } = this.props;
