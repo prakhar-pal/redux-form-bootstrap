@@ -1,5 +1,2 @@
-import { Input } from './components/Input';
-
-export default {
-    Input
-}
+export { Input , InputProps } from './components/Input';
+export { Dropdown, DropdownProps } from './components/Dropdown';
