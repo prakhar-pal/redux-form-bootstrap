@@ -42,7 +42,7 @@ Its expected behavior is outlined as below -
 Its expected props are, but not limited to -
 #### `type: string`
     whether it is 'text', 'number' or 'radio' etc.
-#### `default: string & number`
+#### `defaultValue: string & number`
     should be according to type; a string, number etc.
 #### `format?: Function`
     format the input in input box
@@ -66,7 +66,7 @@ It's expected props are as described -
 
 #### `options: []{label: string, value: string}`
     array of  objects, each of which is has label, value as fiedls.
-#### `default: {label: string, value: string}`
+#### `defaultValue: {label: string, value: string}`
     an object containing keys named label and value
 
 ## 3. Async Select
@@ -81,17 +81,7 @@ Its expected props is outlined as below -
 
 #### `fetchData: Function ` 
     a function  that returns data in format of `[...,{ label: string, value: string}, ...]`
-#### `default?: Object`  
+#### `defaultValue?: Object`  
     an object in the form of  `{label: string, value: string}`. It sets the default value.
 #### `isClearable?: boolean`
     To allow clearing selected value, it defaults to true.
-
-## 4. TextArea
-
-It will serve as replacement for HTML `textarea` tag.
-
-Its expected props is outlined as below -
-
-#### `default?: string`
-    an string, that is used as default value for textarea.
-#### `isClearable?: boolean`
