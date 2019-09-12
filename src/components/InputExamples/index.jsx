@@ -5,7 +5,7 @@ import { Input } from 'redux-form-bootstrap';
 
 class InputExamples extends Component {
     render(){
-        return <div class="container">
+        return <div className="container">
             <h3>
                 Normal input
             </h3>
