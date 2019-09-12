@@ -1,6 +1,6 @@
-import { InjectedFormProps } from 'redux-form';
+import { WrappedFieldProps} from 'redux-form';
 
-export interface BaseProps extends InjectedFormProps{
+export interface BaseFieldProps extends WrappedFieldProps{
     label?: any
     noLabel?: boolean;
     filter?: Function;
