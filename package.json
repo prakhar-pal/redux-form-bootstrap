@@ -1,6 +1,6 @@
 {
   "name": "redux-form-bootstrap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Reusable UI components for redux-form, styled in bootstrap",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -10,7 +10,7 @@
     "build:watch": "rollup -c --watch",
     "test": "jest",
     "prepare": "ENV=dev npm run build",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "echo npm run test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "redux"
   ],
   "author": "Prakhar Pal",
-  "license": "MIT",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/lawki/redux-form-ui-bs/issues"
   },
