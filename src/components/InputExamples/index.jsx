@@ -4,7 +4,14 @@ import { Field, reduxForm } from 'redux-form';
 import { Input } from 'redux-form-bootstrap';
 
 class InputExamples extends Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    onSave = (name, value)=> this.setState({[name]:value});
     render(){
+        console.log(typeof this);
+        const { Name, Age } = this.state;
         return <div className="container">
             <h3>
                 Normal input
@@ -13,7 +20,9 @@ class InputExamples extends Component {
                 name="Name"
                 component={Input}
                 type="text"
+                onSave={(value)=> this.onSave("Name", value)}
             />
+            <div> current value is: <span>{Name}</span></div>
             <hr/>
 
             <h3>
@@ -26,8 +35,9 @@ class InputExamples extends Component {
                 addons={{
                     prepend: ['@']
                 }}
+                onSave={(value)=> this.onSave("Age", value)}
             />
-
+            <div> current value is: <span>{Age}</span></div>
             <hr />
             <h3>
                 Input with suffix
@@ -54,6 +64,41 @@ class InputExamples extends Component {
                 addons={{
                     append: ['India'],
                     prepend:['+91']
+                }}
+            />
+
+            <hr />
+            <h3>
+                Input with label as string
+            </h3>
+
+            <Field
+                name="Location"
+                component={Input}
+                type="string"
+                addons={{
+                    append: ['Kaneda'],
+                    prepend:['+1']
+                }}
+                label="This is a label"
+            />
+
+            <hr />
+            <h3>
+                Input with label as an object
+            </h3>
+
+            <Field
+                name="Location"
+                component={Input}
+                type="number"
+                addons={{
+                    append: ['Chini'],
+                    prepend:['+86']
+                }}
+                label={{
+                    htmlFor:'labelWithObject',
+                    value: 'This is label with object'
                 }}
             />
 
