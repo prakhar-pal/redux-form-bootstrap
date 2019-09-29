@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Input as RsInput, InputGroup, InputGroupAddon, InputGroupText, Label } from 'reactstrap';
+import { Input as RsInput, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import isEqual from 'lodash.isequal';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
+import { Label } from '../Label';
 
 export interface InputProps extends BaseFieldProps{
     type: string;
@@ -38,15 +39,10 @@ export class Input extends React.Component<InputProps, any>{
     }
 
     render(){
-        const { type, defaultValue, addons, input, label, noLabel, outermostClass, fieldClass,  ...rest } = this.props;
-         const labelInfo = !label ? null : typeof label === typeof "" ?
-            { labelFor : label, labelValue: label} : typeof label === typeof {} ?
-                {labelFor : label && label.htmlFor, labelValue : label.value} : null;
-        const labelFor = labelInfo && labelInfo.labelFor || undefined;
-        const labelValue = labelInfo && labelInfo.labelValue;
+        const { type, defaultValue, addons, input, label, noLabel, outermostClass, fieldClass, ...rest } = this.props;
         return (
             <React.Fragment>
-                { !noLabel && label ? <Label for={labelFor}>{labelValue}</Label> : null}
+                {!noLabel && label ? <Label value={label} /> : null}
                 <InputGroup>
                     {addons && this.affixData(addons.prepend, "prepend")}
                     <RsInput

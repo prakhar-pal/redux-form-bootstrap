@@ -5,7 +5,7 @@ export interface LabelProps {
     value: string | LabelObject;
 }
 export interface BaseFieldProps extends WrappedFieldProps{
-    label?: LabelProps;
+    label?: string | LabelObject;
     noLabel?: boolean;
     filter?: Function;
     onSave?: Function;
