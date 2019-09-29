@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders object 1`] = `
+<Label
+  for="myLabel"
+  tag="label"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
+>
+  This is to be shown
+</Label>
+`;
+
+exports[`Label renders string 1`] = `
+<Label
+  for="this is a label"
+  tag="label"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
+>
+  this is a label
+</Label>
+`;

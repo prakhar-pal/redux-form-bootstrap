@@ -31,21 +31,19 @@ It will serve as replacement for HTML `input` tag.
 Its expected behavior is outlined as below -
 
 1. Initial value should empty string i.e. '',
-2. Should ensure to be controlled component,
 3. Wrapper shouldn't have local state,
 4. Should blur when user blurs, same for focus,
-5. Should have disabled as option,
 6. Should be set to '' if the box is cleared,
 7. Should allow initial value (also referred as default value) to be set
-8. ? Should support text/number formatting,
+8. ~~? Should support text/number formatting,~~
 
 Its expected props are, but not limited to -
 #### `type: string`
     whether it is 'text', 'number' or 'radio' etc.
-#### `default: string & number`
+#### `defaultValue: string & number`
     should be according to type; a string, number etc.
-#### `format?: Function`
-    format the input in input box
+#### ~~`format?: Function`~~
+    format the input in input box. (TBD)
 
 
 ## 2. Select
@@ -66,7 +64,7 @@ It's expected props are as described -
 
 #### `options: []{label: string, value: string}`
     array of  objects, each of which is has label, value as fiedls.
-#### `default: {label: string, value: string}`
+#### `defaultValue: {label: string, value: string}`
     an object containing keys named label and value
 
 ## 3. Async Select
@@ -81,17 +79,7 @@ Its expected props is outlined as below -
 
 #### `fetchData: Function ` 
     a function  that returns data in format of `[...,{ label: string, value: string}, ...]`
-#### `default?: Object`  
+#### `defaultValue?: Object`  
     an object in the form of  `{label: string, value: string}`. It sets the default value.
 #### `isClearable?: boolean`
     To allow clearing selected value, it defaults to true.
-
-## 4. TextArea
-
-It will serve as replacement for HTML `textarea` tag.
-
-Its expected props is outlined as below -
-
-#### `default?: string`
-    an string, that is used as default value for textarea.
-#### `isClearable?: boolean`

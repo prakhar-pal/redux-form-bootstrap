@@ -1,14 +1,16 @@
 {
-  "name": "redux-form-ui-bs",
-  "version": "0.1.0",
+  "name": "redux-form-bootstrap",
+  "version": "0.0.2",
   "description": "Reusable UI components for redux-form, styled in bootstrap",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "jsnext:main": "build/index.es.js",
   "scripts": {
-    "build": "rollup -c",
-    "clean:build": "rm -rf build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf build && rollup -c",
+    "build:watch": "rollup -c --watch",
+    "test": "jest",
+    "prepare": "ENV=dev npm run build",
+    "prepublishOnly": "echo npm run test"
   },
   "repository": {
     "type": "git",
@@ -20,31 +22,59 @@
     "redux"
   ],
   "author": "Prakhar Pal",
-  "license": "MIT",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/lawki/redux-form-ui-bs/issues"
   },
   "homepage": "https://github.com/lawki/redux-form-ui-bs#readme",
   "peerDependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "redux-form": "^8.0.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.18",
+    "@types/lodash.isequal": "^4.5.5",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
+    "@types/redux-form": "^8.1.5",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "^24.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts-ts": "^3.1.0",
     "react-test-renderer": "^16.9.0",
+    "redux-form": "^8.2.6",
+    "rimraf": "^3.0.0",
     "rollup": "^1.20.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-typescript2": "^0.24.0",
+    "rollup-plugin-typescript2": "^0.24.1",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.6.2"
   },
   "files": [
     "build"
-  ]
+  ],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
+  },
+  "dependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/reactstrap": "^8.0.4",
+    "classnames": "^2.2.6",
+    "lodash.isequal": "^4.5.0",
+    "reactstrap": "^8.0.1"
+  }
 }

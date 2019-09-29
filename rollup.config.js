@@ -4,7 +4,7 @@ import external from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
 
 import pkg from "./package.json";
-
+const dev = process.env.ENV === 'dev';
 export default {
   input: "src/index.ts",
   output: [
@@ -12,13 +12,13 @@ export default {
       file: pkg.main,
       format: "cjs",
       exports: "named",
-      sourcemap: true
+      sourcemap: !dev
     },
     {
       file: pkg.module,
       format: "es",
       exports: "named",
-      sourcemap: true
+      sourcemap: !dev
     }
   ],
   plugins: [
