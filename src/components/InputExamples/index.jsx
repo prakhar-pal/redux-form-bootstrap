@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
 
-import { Input } from 'redux-form-bootstrap';
+import { Input, RadioButtons } from 'redux-form-bootstrap';
 
 class InputExamples extends Component {
     constructor(props){
@@ -103,6 +103,20 @@ class InputExamples extends Component {
             />
 
             <hr />
+
+            <h3>
+                Radio
+            </h3>
+
+            <Field
+                name="radio"
+                component={RadioButtons}
+                options={['Rajib','Mosand','Debika','Rabi','Nagain']}
+                label={{
+                    htmlFor:'labelAsRadio',
+                    value: 'Chose your name'
+                }}
+            />
         </div>
     }
 }
