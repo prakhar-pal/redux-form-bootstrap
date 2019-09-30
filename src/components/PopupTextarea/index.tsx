@@ -17,7 +17,7 @@ export interface PopupTextareaState{
     isOpen: boolean;
 } 
 
-export class RFInput extends React.Component<PopupTextareaProps, any>{
+export class PopupTextarea extends React.Component<PopupTextareaProps, any>{
 
     static defaultProps = {
         buttonColor: 'danger'
@@ -43,7 +43,7 @@ export class RFInput extends React.Component<PopupTextareaProps, any>{
                 <Modal isOpen={isOpen} toggle={this.toggle} className={modalClassName}>
                     <ModalHeader toggle={this.toggle}>{modalTitle}</ModalHeader>
                     <ModalBody>
-                        {}
+                        {input.value}
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>{doneButtonText}</Button>{' '}

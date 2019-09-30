@@ -48,6 +48,7 @@ export class Input extends React.Component<InputProps, any>{
                     <RsInput
                         type={type as any}
                         value={input.value}
+                        className={fieldClass}
                         {...rest}
                         {...input}
                     />
