@@ -12,4 +12,5 @@ export interface BaseFieldProps extends WrappedFieldProps{
     outermostClass?: string;
     fieldClass?: string;
     disabled?: boolean;
+    defaultValue?: any;
 }
