@@ -25,7 +25,7 @@ export default class RadioButtonsBS extends React.Component<RadioButtonsProps, a
         const { options, noLabel, label, onChange, value, direction, ...rest } = this.props;
         const radioButtons = options && Array.isArray(options) ?
             options.map((option, index) => (
-                <Row className={classnames({ "ml-4": index != 0 && direction !== RADIO_BUTTONS_DIRECTIONS.VERTICAL })}>
+                <Row key={option} className={classnames({ "ml-4": index != 0 && direction !== RADIO_BUTTONS_DIRECTIONS.VERTICAL })}>
                     <div key={option} >
                         <input type="radio" value={option}
                             checked={value === option}
