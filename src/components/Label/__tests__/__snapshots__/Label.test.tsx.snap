@@ -3,6 +3,7 @@
 exports[`Label renders object 1`] = `
 <Label
   for="myLabel"
+  onClick={[Function]}
   tag="label"
   widths={
     Array [
@@ -21,6 +22,7 @@ exports[`Label renders object 1`] = `
 exports[`Label renders string 1`] = `
 <Label
   for="this is a label"
+  onClick={[Function]}
   tag="label"
   widths={
     Array [
