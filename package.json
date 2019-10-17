@@ -1,6 +1,6 @@
 {
   "name": "redux-form-bootstrap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Reusable UI components for redux-form, styled in bootstrap",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -10,7 +10,7 @@
     "build:watch": "rollup -c --watch",
     "test": "jest",
     "prepare": "ENV=dev npm run build",
-    "prepublishOnly": "echo npm run test"
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "reactstrap": "^8.0.1",
     "redux-form": "^8.0.0"
   },
   "devDependencies": {
