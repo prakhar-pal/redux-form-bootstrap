@@ -2,10 +2,11 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import InputExamples  from '../components/InputExamples'; 
 import DropdownExamples  from '../components/DropdownExamples'; 
+import MiscExamples from '../components/MiscExamples';
 export default  [
     {
         path: '/',
-        render: ()=> <Redirect to='/input'/>,
+        render: ()=> <Redirect to='/misc'/>,
         exact: true
     },
     {
@@ -15,5 +16,9 @@ export default  [
     {
         path: '/dropdown',
         component: DropdownExamples
+    },
+    {
+        path: '/misc',
+        component: MiscExamples
     }
 ]
