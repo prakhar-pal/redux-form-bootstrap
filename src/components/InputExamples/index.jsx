@@ -111,6 +111,7 @@ class InputExamples extends Component {
             <Field
                 name="radio"
                 component={RadioButtons}
+                direction="vertical"
                 options={['Rajib','Mosand','Debika','Rabi','Nagain']}
                 label={{
                     htmlFor:'labelAsRadio',
