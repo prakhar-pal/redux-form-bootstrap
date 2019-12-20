@@ -13,6 +13,7 @@ export interface SelectProps {
     value?: string;
     multiple?: boolean;
     onChange: (value: string) => void;
+    notSelectedText?: string;
 }
 
 export default class SelectBS extends React.Component<SelectProps, any>{
@@ -23,7 +24,7 @@ export default class SelectBS extends React.Component<SelectProps, any>{
         }
     }
     render() {
-        const { label, options, name, onChange, noLabel, multiple, value } = this.props;
+        const { label, options, name, onChange, noLabel, multiple, value, notSelectedText = "Nothing is Selected" } = this.props;
         return (
             <FormGroup>
                 {!noLabel && label ? <Label value={label} /> : null}
@@ -32,12 +33,14 @@ export default class SelectBS extends React.Component<SelectProps, any>{
                     name={name}
                     onChange={(e) => onChange(e.target.value)}
                     multiple={multiple}
+                    value={value}
                 >
+                    <option value="">{notSelectedText}</option>
                     {
                         options.map(option => (
                             <option
-                                key={option.value}
-                                selected={option.value === value}
+                                key={option.label}
+                                value={option.value}
                             >
                                 {option.label}
                             </option>))
@@ -52,7 +55,7 @@ export default class SelectBS extends React.Component<SelectProps, any>{
 export type SelectFormProps = SelectProps & BaseFieldProps;
 export class Select extends FormComponent<SelectFormProps>{
     render() {
-        const { options, noLabel, label, multiple, input: { value, name } } = this.props;
+        const { options, noLabel, label, multiple, input: { value, name }, notSelectedText } = this.props;
         return (
             <SelectBS
                 options={options}
@@ -62,6 +65,7 @@ export class Select extends FormComponent<SelectFormProps>{
                 label={label}
                 onChange={this.saveToStore}
                 multiple={multiple}
+                notSelectedText={notSelectedText}
             />
         )
     }
