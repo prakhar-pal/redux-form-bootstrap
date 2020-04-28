@@ -22,7 +22,7 @@
     "redux"
   ],
   "author": "Prakhar Pal",
-  "license": "GPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lawki/redux-form-ui-bs/issues"
   },

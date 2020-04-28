@@ -83,3 +83,5 @@ Its expected props is outlined as below -
     an object in the form of  `{label: string, value: string}`. It sets the default value.
 #### `isClearable?: boolean`
     To allow clearing selected value, it defaults to true.
+
+## Licence: MIT
