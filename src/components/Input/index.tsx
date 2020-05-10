@@ -17,7 +17,7 @@ export interface InputProps {
     className?: string;
 }
 
-class InputComponent extends React.Component<InputProps & InjectedExtraProps, any>{
+export class InputComponent extends React.Component<InputProps & InjectedExtraProps, any>{
 
     affixData = (data: string[], type: "prepend" | "append") => (data && Array.isArray(data) ?
         (<InputGroupAddon addonType={type}>
@@ -52,5 +52,4 @@ class InputComponent extends React.Component<InputProps & InjectedExtraProps, an
 
 
 export type InputFormType = InputProps & BaseFieldProps;
-const Input = withFormComponent(InputComponent);
-export default Input;
+export default withFormComponent(InputComponent);

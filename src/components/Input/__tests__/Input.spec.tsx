@@ -1,7 +1,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 import { Input as RSInput } from 'reactstrap';
-import Input  from "..";
+import { InputComponent as Input } from "..";
 describe("Input", () => {
 
   it('should render correctly', () => {
