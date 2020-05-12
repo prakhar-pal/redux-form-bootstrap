@@ -1,27 +1,31 @@
 import * as React from 'react';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem  } from 'reactstrap';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
+import withFormComponent, { InjectedExtraProps } from "../../common/withFormComponent";
 
-export interface DropdownOption{
-    value: string, 
-    type: 'header' | 'disabled' | 'divider' 
+export interface DropdownOption {
+    value: string,
+    type: 'header' | 'disabled' | 'divider'
 }
-export interface DropdownProps extends BaseFieldProps{
+
+export interface DropdownProps extends BaseFieldProps {
     defaultValue?: any;
-    input: any;
     isCaret?: boolean;
-    color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger',
+    // color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger',
+    color?: string;
     text: string;
     options: DropdownOption[];
-    size: 'lg' | 'sm',
-    direction: 'up' | 'down' | 'left' | 'right'
+    // size: 'lg' | 'sm',
+    size?: string;
+    // direction: 'up' | 'down' | 'left' | 'right'
+    direction?: string;
 }
 
 export interface RFDropdownState {
     isOpen: boolean;
 }
 
-export class Dropdown extends React.Component<DropdownProps, RFDropdownState>{
+export class Dropdown extends React.Component<DropdownProps & InjectedExtraProps, RFDropdownState>{
 
     static defaultProps = {
         isCaret: true,
@@ -36,48 +40,50 @@ export class Dropdown extends React.Component<DropdownProps, RFDropdownState>{
         DIVIDER: 'divider',
     }
 
-    constructor(props: DropdownProps){
+    constructor(props: DropdownProps & InjectedExtraProps) {
         super(props);
         this.state = {
             isOpen: false
         }
     }
 
-    toggle = ()=> this.setState((oldState: { isOpen: any; })=> ({isOpen: !oldState.isOpen}))
+    toggle = () => this.setState(oldState => ({ isOpen: !oldState.isOpen }))
 
-    saveToStore = ( data : string)=>{
-        const { filter, input } = this.props;
-        data = filter && typeof filter === typeof Function ? filter(data): data;
-        input.onChange(data);
+    saveToStore = (data: string) => {
+        const { filter, onChange } = this.props;
+        data = filter && typeof filter === typeof Function ? filter(data) : data;
+        onChange(data);
     }
 
-    render(){
+    render() {
         const { isCaret, color, options, text, size, direction } = this.props;
         const { isOpen } = this.state;
         return (
-            <ButtonDropdown isOpen={isOpen} toggle={this.toggle} direction={direction}>
-            <DropdownToggle caret={isCaret} color={color} size={size}>
-              {text}
-            </DropdownToggle>
-            <DropdownMenu>
-                {options && Array.isArray(options) ? 
-                options.map( option => {
-                    const types = Dropdown.DROPDOWN_TYPE;
-                    const handler = ()=> this.saveToStore(option.value);
-                    switch(option.type){
-                        case types.DISABLED:
-                            return <DropdownItem onClick={handler} disabled >{option.value}</DropdownItem>;
-                        case types.DIVIDER:
-                            return <DropdownItem  onClick={handler} divider>{option.value}</DropdownItem>;
-                        case types.HEADER:
-                                return <DropdownItem  onClick={handler} header>{option.value}</DropdownItem>;
-                        default:
-                            return <DropdownItem  onClick={handler}>{option.value}</DropdownItem>;
-                            
-                    }
-                }): null}
-            </DropdownMenu>
-          </ButtonDropdown>
+            <ButtonDropdown isOpen={isOpen} toggle={this.toggle} direction={direction as any}>
+                <DropdownToggle caret={isCaret} color={color} size={size}>
+                    {text}
+                </DropdownToggle>
+                <DropdownMenu>
+                    {options && Array.isArray(options) ?
+                        options.map(option => {
+                            const types = Dropdown.DROPDOWN_TYPE;
+                            const handler = () => this.saveToStore(option.value);
+                            switch (option.type) {
+                                case types.DISABLED:
+                                    return <DropdownItem onClick={handler} disabled >{option.value}</DropdownItem>;
+                                case types.DIVIDER:
+                                    return <DropdownItem onClick={handler} divider>{option.value}</DropdownItem>;
+                                case types.HEADER:
+                                    return <DropdownItem onClick={handler} header>{option.value}</DropdownItem>;
+                                default:
+                                    return <DropdownItem onClick={handler}>{option.value}</DropdownItem>;
+
+                            }
+                        }) : null}
+                </DropdownMenu>
+            </ButtonDropdown>
         )
     }
 }
+
+export default withFormComponent(Dropdown);
