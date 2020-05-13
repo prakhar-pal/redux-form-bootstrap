@@ -4,6 +4,8 @@ import { BaseFieldProps } from '../common/interfaces/CommonProps';
 
 export interface InjectedExtraProps{
     onChange: (value: any) => void;
+    onBlur: () => void;
+    value: any;
 }
 
 
@@ -30,7 +32,14 @@ const withFormComponent = <P extends InjectedExtraProps>(Component: React.Compon
             input.onChange(data);
         }
         render() {
-            return (<Component {...(this.props as P)} onChange={this.saveToStore}/>);
+            const { input } = this.props;
+            return (
+                <Component 
+                    {...(this.props as P)} 
+                    onChange={this.saveToStore} 
+                    onBlur={input.onBlur}
+                    value={input.value} 
+                />);
         }
     }
 

@@ -4,16 +4,13 @@ import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 import { Label } from '../Label';
 import withFormComponent, { InjectedExtraProps } from '../../common/withFormComponent';
 
-export interface InputProps {
+export interface InputProps extends BaseFieldProps {
     type: string;
     value?: any;
     addons?: {
         prepend: string[],
         append: string[]
     };
-    onBlur?: ((event: React.FocusEvent<HTMLInputElement>) => void) | undefined;
-    noLabel?: boolean;
-    label?: string | { htmlFor: string, value: any }
     className?: string;
 }
 
@@ -50,6 +47,4 @@ export class InputComponent extends React.Component<InputProps & InjectedExtraPr
     }
 }
 
-
-export type InputFormType = InputProps & BaseFieldProps;
 export default withFormComponent(InputComponent);
