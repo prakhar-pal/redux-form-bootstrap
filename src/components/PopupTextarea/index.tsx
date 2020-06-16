@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {  Modal, Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import withFormComponent from '../../common/withFormComponent';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 
-export interface PopupTextareaProps extends BaseFieldProps{
+export interface PopupTextareaProps extends BaseFieldProps {
     defaultValue?: string;    
     buttonLabel: string;
     buttonColor?: string;
@@ -11,31 +12,34 @@ export interface PopupTextareaProps extends BaseFieldProps{
     modalBody: string;
     cancelButtonText: string;
     doneButtonText: string;
+    value: any; 
+    onChange: (value: any) => void;
+    onBlur: () => void;
 }
 
-export interface PopupTextareaState{
+export interface PopupTextareaState {
     isOpen: boolean;
-} 
+}
 
-export class PopupTextarea extends React.Component<PopupTextareaProps, any>{
+export class PopupTextareaForm extends React.Component<PopupTextareaProps, PopupTextareaState>{
 
     static defaultProps = {
         buttonColor: 'danger'
     }
 
-    constructor(props: PopupTextareaProps){
+    constructor(props: PopupTextareaProps) {
         super(props);
         this.state = {
             isOpen: false
         }
     }
 
-    toggle = ()=> this.setState((oldState: PopupTextareaState)=>({isOpen: !oldState.isOpen}));
+    toggle = () => this.setState((oldState: PopupTextareaState) => ({ isOpen: !oldState.isOpen }));
 
 
-    render(){
+    render() {
         const { buttonLabel, buttonColor, modalClassName, modalTitle,
-             doneButtonText, cancelButtonText, input} = this.props;
+            doneButtonText, cancelButtonText, value } = this.props;
         const { isOpen } = this.state;
         return (
             <React.Fragment>
@@ -43,7 +47,7 @@ export class PopupTextarea extends React.Component<PopupTextareaProps, any>{
                 <Modal isOpen={isOpen} toggle={this.toggle} className={modalClassName}>
                     <ModalHeader toggle={this.toggle}>{modalTitle}</ModalHeader>
                     <ModalBody>
-                        {input.value}
+                        {value}
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>{doneButtonText}</Button>{' '}
@@ -54,3 +58,5 @@ export class PopupTextarea extends React.Component<PopupTextareaProps, any>{
         )
     }
 }
+
+export default withFormComponent(PopupTextareaForm);
