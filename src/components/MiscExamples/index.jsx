@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Input, Select } from 'redux-form-bootstrap';
+import { Input, Select, PopupTextarea } from 'redux-form-bootstrap';
 export function MiscExamples(props){
     const candyTypes = ['Chocolate',
         'Gummies',
@@ -29,6 +29,22 @@ export function MiscExamples(props){
                         options={candyTypes.map(type=> ({label: type, value: type}))}
                         defaultValue={candyTypes[2]}
                     />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <Field
+                        name="story"
+                        component={PopupTextarea}
+                        buttonColor={"primary"}
+                        buttonLabel="Qlique Me"
+                        className="w-100"
+                        label="Age"
+                        defaultValue="13"
+                    />
+                </div>
+                <div className="col">
+                    <i>Add New Col here</i>
                 </div>
             </div>
         </div>
