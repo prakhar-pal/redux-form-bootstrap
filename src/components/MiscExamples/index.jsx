@@ -27,7 +27,7 @@ export function MiscExamples(props){
                         component={Select}
                         label="CandyType"
                         options={candyTypes.map(type=> ({label: type, value: type}))}
-                        notSelectedText="Why You No Select :("
+                        defaultValue={candyTypes[2]}
                     />
                 </div>
             </div>
