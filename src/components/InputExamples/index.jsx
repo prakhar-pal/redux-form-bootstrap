@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
 
-import { Input, RadioButtons } from 'redux-form-bootstrap';
+import { Input, RadioButton } from 'redux-form-bootstrap';
 
 class InputExamples extends Component {
     constructor(props){
@@ -110,7 +110,7 @@ class InputExamples extends Component {
 
             <Field
                 name="radio"
-                component={RadioButtons}
+                component={RadioButton}
                 direction="vertical"
                 options={['Rajib','Mosand','Debika','Rabi','Nagain']}
                 label={{

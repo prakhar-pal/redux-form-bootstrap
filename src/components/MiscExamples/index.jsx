@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Input, Select, PopupTextarea } from 'redux-form-bootstrap';
+import { Input, Select, PopupTextarea, RadioButton } from 'redux-form-bootstrap';
 export function MiscExamples(props){
     const candyTypes = ['Chocolate',
         'Gummies',
@@ -39,12 +39,21 @@ export function MiscExamples(props){
                         buttonColor={"primary"}
                         buttonLabel="Qlique Me"
                         className="w-100"
-                        label="Age"
-                        defaultValue="13"
+                        label="Enter a short story"
+                        defaultValue="Test text for PopupTextarea"
                     />
                 </div>
                 <div className="col">
-                    <i>Add New Col here</i>
+                    <Field
+                        name="fav_person"
+                        component={RadioButton}
+                        direction="horizontal"
+                        options={['Rajib','Mosand','Debika','Rabi','Nagain']}
+                        label={{
+                            htmlFor:'labelAsRadio',
+                            value: 'Chose your name'
+                        }}
+                    />
                 </div>
             </div>
         </div>
