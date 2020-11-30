@@ -2,18 +2,14 @@ import * as React from 'react';
 import isEqual from 'lodash.isequal';
 import { BaseFieldProps } from '../common/interfaces/CommonProps';
 
-export interface InjectedExtraProps{
+export interface InjectedExtraProps {
     onChange: (value: any) => void;
     onBlur: () => void;
     value: any;
 }
 
-
 const withFormComponent = <P extends InjectedExtraProps>(Component: React.ComponentType<P>) =>
     class FormComponent extends React.Component<BaseFieldProps & P, any>{
-        constructor(props: BaseFieldProps & P, state: any) {
-            super(props, state);
-        }
         componentDidMount() {
             const { defaultValue } = this.props;
             if (defaultValue !== undefined) this.saveToStore(defaultValue);
@@ -21,7 +17,9 @@ const withFormComponent = <P extends InjectedExtraProps>(Component: React.Compon
 
         componentDidUpdate(oldProps: BaseFieldProps) {
             const { defaultValue, onSave, input } = this.props;
+            //sync if default value changes
             if (!isEqual(oldProps.defaultValue, defaultValue)) this.saveToStore(defaultValue);
+            //sync if value changes from outside
             if (!isEqual(oldProps.input.value, input.value) && onSave && typeof onSave === typeof Function)
                 onSave(input.value);
         }

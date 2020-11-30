@@ -5,10 +5,12 @@ export { Label } from './components/Label';
 export { LabelProps } from './common/interfaces/CommonProps';
 import PopupTextarea from './components/PopupTextarea';
 import RadioButton from './components/RadioButtons';
-export { Select, SelectFormProps, SelectProps } from './components/Select';
+export { SelectProps } from './components/Select';
+import SelectForm from './components/Select';
 export { 
     Input, 
     PopupTextarea,
-    RadioButton
+    RadioButton,
+    SelectForm
 };
 // export default DisconnectedComponents;

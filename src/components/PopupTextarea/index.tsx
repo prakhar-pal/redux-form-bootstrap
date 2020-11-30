@@ -4,7 +4,6 @@ import withFormComponent from '../../common/withFormComponent';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 
 export interface PopupTextareaProps extends BaseFieldProps {
-    defaultValue?: string;    
     buttonLabel: string;
     buttonColor?: string;
     modalClassName?: string;
