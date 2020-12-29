@@ -13,9 +13,9 @@ export interface RadioButtonsProps extends BaseFieldProps {
     options: string[];
     noLabel?: boolean;
     label?: string | { htmlFor: string, value: any }
-    value: any;
+    value?: any;
     onChange: (value: string) => void;
-    onBlur: () => void;
+    onBlur?: () => void;
     direction?: string
 }
 export class RadioButtonsForm extends React.Component<RadioButtonsProps, any>{

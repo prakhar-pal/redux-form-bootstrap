@@ -1,12 +1,14 @@
-import { WrappedFieldProps} from 'redux-form';
+export interface LabelObject { 
+    htmlFor: string, 
+    value: any 
+}
 
-export interface LabelObject { htmlFor: string, value: any }
 export interface LabelProps {
     value: string | LabelObject;
     className?: string;
     onClick?: Function;
 }
-export interface BaseFieldProps extends WrappedFieldProps{
+export interface BaseFieldProps{
     label?: string | LabelObject;
     noLabel?: boolean;
     filter?: Function;

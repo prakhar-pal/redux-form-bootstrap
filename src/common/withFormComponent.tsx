@@ -1,21 +1,22 @@
 import * as React from 'react';
 import isEqual from 'lodash.isequal';
 import { BaseFieldProps } from '../common/interfaces/CommonProps';
+import { WrappedFieldProps } from 'redux-form';
 
-export interface InjectedExtraProps {
+export interface InjectedExtraProps extends WrappedFieldProps {
     onChange: (value: any) => void;
     onBlur: () => void;
     value: any;
 }
 
-const withFormComponent = <P extends InjectedExtraProps>(Component: React.ComponentType<P>) =>
-    class FormComponent extends React.Component<BaseFieldProps & P, any>{
+const withFormComponent = <P extends BaseFieldProps>(Component: React.ComponentType<P>) =>
+    class FormComponent extends React.Component<BaseFieldProps & P & InjectedExtraProps, any>{
         componentDidMount() {
             const { defaultValue } = this.props;
             if (defaultValue !== undefined) this.saveToStore(defaultValue);
         }
 
-        componentDidUpdate(oldProps: BaseFieldProps) {
+        componentDidUpdate(oldProps: BaseFieldProps & P & InjectedExtraProps) {
             const { defaultValue, onSave, input } = this.props;
             //sync if default value changes
             if (!isEqual(oldProps.defaultValue, defaultValue)) this.saveToStore(defaultValue);
