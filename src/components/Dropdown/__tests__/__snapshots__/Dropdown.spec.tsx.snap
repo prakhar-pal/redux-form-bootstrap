@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Component renders 1`] = `
+<ButtonDropdown
+  direction="down"
+  isOpen={false}
+  toggle={[Function]}
+>
+  <DropdownToggle
+    aria-haspopup={true}
+    caret={true}
+    color="info"
+    size="sm"
+  >
+    Select a name
+  </DropdownToggle>
+  <DropdownMenu
+    flip={true}
+    tag="div"
+  >
+    <DropdownItem
+      disabled={true}
+      key="You haven't selected a name yet!"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    >
+      You haven't selected a name yet!
+    </DropdownItem>
+    <DropdownItem
+      header={true}
+      key="Karen"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    >
+      Karen
+    </DropdownItem>
+    <DropdownItem
+      divider={true}
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    />
+    <DropdownItem
+      header={true}
+      key="Gillian"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    >
+      Gillian
+    </DropdownItem>
+    <DropdownItem
+      divider={true}
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    />
+    <DropdownItem
+      header={true}
+      key="Bucky"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    >
+      Bucky
+    </DropdownItem>
+    <DropdownItem
+      divider={true}
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    />
+    <DropdownItem
+      header={true}
+      key="Bikrum"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    >
+      Bikrum
+    </DropdownItem>
+    <DropdownItem
+      divider={true}
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+    />
+  </DropdownMenu>
+</ButtonDropdown>
+`;

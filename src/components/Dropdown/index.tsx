@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
-import withFormComponent, { InjectedExtraProps } from "../../common/withFormComponent";
+import withFormComponent from "../../common/withFormComponent";
 
 export interface DropdownOption {
-    value: string,
-    type: 'header' | 'disabled' | 'divider'
+    value?: string,
+    type?: 'header' | 'disabled' | 'divider'
 }
 
 export interface DropdownProps extends BaseFieldProps {
-    defaultValue?: any;
     isCaret?: boolean;
     // color?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger',
     color?: string;
@@ -19,13 +18,14 @@ export interface DropdownProps extends BaseFieldProps {
     size?: string;
     // direction: 'up' | 'down' | 'left' | 'right'
     direction?: string;
+    onChange?: Function;
 }
 
 export interface RFDropdownState {
     isOpen: boolean;
 }
 
-export class Dropdown extends React.Component<DropdownProps & InjectedExtraProps, RFDropdownState>{
+export class Dropdown extends React.Component<DropdownProps, RFDropdownState>{
 
     static defaultProps = {
         isCaret: true,
@@ -40,7 +40,7 @@ export class Dropdown extends React.Component<DropdownProps & InjectedExtraProps
         DIVIDER: 'divider',
     }
 
-    constructor(props: DropdownProps & InjectedExtraProps) {
+    constructor(props: DropdownProps) {
         super(props);
         this.state = {
             isOpen: false
@@ -52,7 +52,7 @@ export class Dropdown extends React.Component<DropdownProps & InjectedExtraProps
     saveToStore = (data: string) => {
         const { filter, onChange } = this.props;
         data = filter && typeof filter === typeof Function ? filter(data) : data;
-        onChange(data);
+        onChange && onChange(data);
     }
 
     render() {
@@ -67,16 +67,16 @@ export class Dropdown extends React.Component<DropdownProps & InjectedExtraProps
                     {options && Array.isArray(options) ?
                         options.map(option => {
                             const types = Dropdown.DROPDOWN_TYPE;
-                            const handler = () => this.saveToStore(option.value);
+                            const handler = () => option.value !== undefined && this.saveToStore(option.value);
                             switch (option.type) {
                                 case types.DISABLED:
-                                    return <DropdownItem onClick={handler} disabled >{option.value}</DropdownItem>;
+                                    return <DropdownItem onClick={handler} disabled key={option.value}>{option.value}</DropdownItem>;
                                 case types.DIVIDER:
-                                    return <DropdownItem onClick={handler} divider>{option.value}</DropdownItem>;
+                                    return <DropdownItem onClick={handler} divider key={option.value}>{option.value}</DropdownItem>;
                                 case types.HEADER:
-                                    return <DropdownItem onClick={handler} header>{option.value}</DropdownItem>;
+                                    return <DropdownItem onClick={handler} header key={option.value}>{option.value}</DropdownItem>;
                                 default:
-                                    return <DropdownItem onClick={handler}>{option.value}</DropdownItem>;
+                                    return <DropdownItem onClick={handler} key={option.value}>{option.value}</DropdownItem>;
 
                             }
                         }) : null}

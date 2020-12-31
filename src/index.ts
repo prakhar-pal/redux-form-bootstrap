@@ -11,6 +11,6 @@ export {
     Input, 
     PopupTextarea,
     RadioButton,
-    SelectForm
+    SelectForm as Select
 };
 // export default DisconnectedComponents;
