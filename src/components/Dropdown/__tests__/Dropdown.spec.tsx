@@ -23,6 +23,18 @@ describe('Dropdown Component', () => {
                 options={options}
                 onChange={fn}
             />);
-        expect(app.find('.btn-group')).toHaveLength(1);
+        expect(app.find('.btn-group').length).toBe(1);
+    });
+
+    it('handles onChange', () => {
+        const fn = jest.fn();
+        const app = mount(
+            <Dropdown
+                text="Select a name"
+                options={options}
+                onChange={fn}
+            />);
+        app.find('.btn-group').simulate('click');
+        expect(fn.call.length).toBe(1);
     });
 });
