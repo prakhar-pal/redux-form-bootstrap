@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input should render correctly 1`] = `
+exports[`Input Component should render correctly 1`] = `
 <Fragment>
   <InputGroup
     tag="div"
   >
     <Input
-      onChange={[MockFunction]}
+      onChange={[Function]}
       type="text"
+      value="1"
     />
   </InputGroup>
 </Fragment>

@@ -13,6 +13,38 @@ exports[`RadioButtons renders 1`] = `
         "xl",
       ]
     }
-  />
+  >
+    <Row
+      className=""
+      key="Red"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <div
+        key="Red"
+      >
+        <input
+          checked={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          type="radio"
+          value="Red"
+        />
+      </div>
+      <Label
+        className="ml-1"
+        onClick={[Function]}
+        value="Red"
+      />
+    </Row>
+  </Col>
 </Fragment>
 `;

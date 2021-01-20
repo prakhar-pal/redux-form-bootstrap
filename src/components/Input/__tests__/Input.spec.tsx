@@ -1,12 +1,12 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 import { Input as RSInput } from 'reactstrap';
-import Input  from "..";
-describe("Input", () => {
+import { InputComponent as Input } from "..";
 
+describe("Input Component", () => {
   it('should render correctly', () => {
     const fn = jest.fn();
-    const component = shallow(<Input type="text" onChange={fn} />);
+    const component = shallow(<Input type="text" onChange={fn} value="1"/>);
     expect(component).toMatchSnapshot();
   });
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Row, Col } from 'reactstrap';
 import classnames from 'classnames';
-import FormComponent from '../FormComponent';
+import withFormComponent from '../../common/withFormComponent';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 import { Label } from '../Label';
 
@@ -9,15 +9,16 @@ export const RADIO_BUTTONS_DIRECTIONS = {
     HORIZONTAL: "horizontal",
     VERTICAL: "vertical"
 }
-export interface RadioButtonsProps {
+export interface RadioButtonsProps extends BaseFieldProps {
     options: string[];
     noLabel?: boolean;
     label?: string | { htmlFor: string, value: any }
-    value?: string;
+    value?: any;
     onChange: (value: string) => void;
-    direction?: "horizontal" | "vertical"
+    onBlur?: () => void;
+    direction?: string
 }
-export default class RadioButtonsBS extends React.Component<RadioButtonsProps, any>{
+export class RadioButtonsForm extends React.Component<RadioButtonsProps, any>{
     static defaultProps = {
         direction: "vertical"
     }
@@ -52,19 +53,4 @@ export default class RadioButtonsBS extends React.Component<RadioButtonsProps, a
     }
 }
 
-export type RadioButtonsFormProps = RadioButtonsProps & BaseFieldProps;
-export class RadioButtons extends FormComponent<RadioButtonsFormProps>{
-    render() {
-        const { options, noLabel, label, direction, input: { value } } = this.props;
-        return (
-            <RadioButtonsBS
-                options={options}
-                noLabel={noLabel}
-                label={label}
-                value={value}
-                onChange={this.saveToStore}
-                direction={direction}
-            />
-        )
-    }
-}
+export default withFormComponent(RadioButtonsForm);

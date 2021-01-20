@@ -1,0 +1,55 @@
+import * as React from 'react';
+import { FormGroup, Input } from 'reactstrap';
+import isEqual from 'lodash.isequal';
+import { Label } from '../Label';
+import withFormComponent from '../../common/withFormComponent';
+import { BaseFieldProps } from '../../common/interfaces/CommonProps';
+
+export interface SelectProps extends BaseFieldProps{
+    options: { label: string, value: string }[];
+    noLabel?: boolean;
+    label?: string | { htmlFor: string, value: any }
+    filter?: Function;
+    value: string;
+    multiple?: boolean;
+    onChange: (value: string) => void;
+    onBlur: () => void;
+    notSelectedText?: string;
+}
+
+class SelectForm extends React.Component<SelectProps, any>{
+    componentDidUpdate(oldProps:SelectProps){
+        const { options } = this.props;
+        if (oldProps.options.length !== options.length || !isEqual(oldProps.options, options)){
+
+        }
+    }
+    render() {
+        const { label, options, onChange, noLabel, multiple, value, notSelectedText = "Nothing is Selected" } = this.props;
+        return (
+            <FormGroup>
+                {!noLabel && label ? <Label value={label} /> : null}
+                <Input
+                    type="select"
+                    onChange={e => onChange(e.target.value)}
+                    multiple={multiple}
+                    value={value}
+                >
+                    <option value="">{notSelectedText}</option>
+                    {
+                        options.map(option => (
+                            <option
+                                key={option.label}
+                                value={option.value}
+                            >
+                                {option.label}
+                            </option>))
+                    }
+                </Input>
+            </FormGroup>
+        )
+    }
+}
+
+
+export default withFormComponent(SelectForm);

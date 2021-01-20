@@ -18,6 +18,6 @@ module.exports = {
         "js"
     ],
     "testMatch": [
-        "**/__tests__/**/*.(ts|tsx|js)"
+        "**/__tests__/**/*\.spec\.(ts|tsx|js)"
     ]
 }
