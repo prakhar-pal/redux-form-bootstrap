@@ -63,14 +63,6 @@
   "files": [
     "build"
   ],
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./src/setupTests.js"
-    ]
-  },
   "dependencies": {
     "@types/classnames": "^2.2.9",
     "@types/reactstrap": "^8.0.4",

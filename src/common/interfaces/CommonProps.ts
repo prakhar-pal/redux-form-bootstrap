@@ -7,6 +7,7 @@ export interface LabelProps {
     value: string | LabelObject;
     className?: string;
     onClick?: Function;
+    noLabel?: boolean;
 }
 export interface BaseFieldProps{
     label?: string | LabelObject;

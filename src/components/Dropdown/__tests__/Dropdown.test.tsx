@@ -1,7 +1,21 @@
 import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Dropdown } from '..';
-import { options } from './Dropdown.options';
+import { DropdownOption } from "..";
+
+export const options: DropdownOption[] = [
+    {value: "You haven't selected a name yet!", type: "disabled"},
+    {value: "Karen", type: "header"},
+    {type: "divider"},
+    {value: "Gillian", type: "header"},
+    {type: "divider"},
+    {value: "Bucky", type: "header"},
+    {type: "divider"},
+    {value: "Bikrum", type: "header"},
+    {type: "divider"}
+]
+
+
 describe('Dropdown Component', () => {
 
     it('renders', () => {

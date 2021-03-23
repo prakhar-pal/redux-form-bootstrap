@@ -20,7 +20,9 @@ exports[`Dropdown Component renders 1`] = `
   >
     <DropdownItem
       disabled={true}
-      key="You haven't selected a name yet!"
+      divider={false}
+      header={false}
+      key="You haven't selected a name yet!_0"
       onClick={[Function]}
       tag="button"
       toggle={true}
@@ -28,8 +30,10 @@ exports[`Dropdown Component renders 1`] = `
       You haven't selected a name yet!
     </DropdownItem>
     <DropdownItem
+      disabled={false}
+      divider={false}
       header={true}
-      key="Karen"
+      key="Karen_1"
       onClick={[Function]}
       tag="button"
       toggle={true}
@@ -37,14 +41,19 @@ exports[`Dropdown Component renders 1`] = `
       Karen
     </DropdownItem>
     <DropdownItem
+      disabled={false}
       divider={true}
+      header={false}
+      key="DropdownItem_2"
       onClick={[Function]}
       tag="button"
       toggle={true}
     />
     <DropdownItem
+      disabled={false}
+      divider={false}
       header={true}
-      key="Gillian"
+      key="Gillian_3"
       onClick={[Function]}
       tag="button"
       toggle={true}
@@ -52,14 +61,19 @@ exports[`Dropdown Component renders 1`] = `
       Gillian
     </DropdownItem>
     <DropdownItem
+      disabled={false}
       divider={true}
+      header={false}
+      key="DropdownItem_4"
       onClick={[Function]}
       tag="button"
       toggle={true}
     />
     <DropdownItem
+      disabled={false}
+      divider={false}
       header={true}
-      key="Bucky"
+      key="Bucky_5"
       onClick={[Function]}
       tag="button"
       toggle={true}
@@ -67,14 +81,19 @@ exports[`Dropdown Component renders 1`] = `
       Bucky
     </DropdownItem>
     <DropdownItem
+      disabled={false}
       divider={true}
+      header={false}
+      key="DropdownItem_6"
       onClick={[Function]}
       tag="button"
       toggle={true}
     />
     <DropdownItem
+      disabled={false}
+      divider={false}
       header={true}
-      key="Bikrum"
+      key="Bikrum_7"
       onClick={[Function]}
       tag="button"
       toggle={true}
@@ -82,7 +101,10 @@ exports[`Dropdown Component renders 1`] = `
       Bikrum
     </DropdownItem>
     <DropdownItem
+      disabled={false}
       divider={true}
+      header={false}
+      key="DropdownItem_8"
       onClick={[Function]}
       tag="button"
       toggle={true}

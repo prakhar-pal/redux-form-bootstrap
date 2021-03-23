@@ -65,20 +65,20 @@ export class Dropdown extends React.Component<DropdownProps, RFDropdownState>{
                 </DropdownToggle>
                 <DropdownMenu>
                     {options && Array.isArray(options) ?
-                        options.map(option => {
+                        options.map((option, index) => {
                             const types = Dropdown.DROPDOWN_TYPE;
                             const handler = () => option.value !== undefined && this.saveToStore(option.value);
-                            switch (option.type) {
-                                case types.DISABLED:
-                                    return <DropdownItem onClick={handler} disabled key={option.value}>{option.value}</DropdownItem>;
-                                case types.DIVIDER:
-                                    return <DropdownItem onClick={handler} divider key={option.value}>{option.value}</DropdownItem>;
-                                case types.HEADER:
-                                    return <DropdownItem onClick={handler} header key={option.value}>{option.value}</DropdownItem>;
-                                default:
-                                    return <DropdownItem onClick={handler} key={option.value}>{option.value}</DropdownItem>;
-
-                            }
+                            return (
+                                <DropdownItem
+                                    onClick={handler}
+                                    key={`${option.value|| 'DropdownItem'}_${index}`}
+                                    disabled={option.type === types.DISABLED}
+                                    divider={option.type === types.DIVIDER}
+                                    header={option.type === types.HEADER}
+                                >
+                                    {option.value}
+                                </DropdownItem>
+                            );
                         }) : null}
                 </DropdownMenu>
             </ButtonDropdown>

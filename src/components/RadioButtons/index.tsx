@@ -39,7 +39,7 @@ export class RadioButtonsForm extends React.Component<RadioButtonsProps, any>{
                 </Row>)) : null;
         return (
             <React.Fragment>
-                {!noLabel && label ? <Label value={label} /> : null}
+                <Label value={label ? label: ''} noLabel={noLabel}/>
                 {direction === RADIO_BUTTONS_DIRECTIONS.HORIZONTAL ? (
                     <Row className="ml-3">
                         {radioButtons}

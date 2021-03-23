@@ -11,20 +11,6 @@ describe('Label',()=>{
         expect(app).toMatchSnapshot();
     })
 
-    it('sets props correctly',()=>{
-        const labelValue = "this is a label";
-        const app = mount(<Label value={labelValue}/>);
-        expect(app.props().value).toBe(labelValue);
-        app.unmount();
-
-        const htmlFor = 'myLabel',
-              value = 'label value',
-              app2 = mount(<Label value={{htmlFor,value}}/>);
-        expect(app2.props().value).toStrictEqual({htmlFor, value});
-        // expect(app2.props().htmlFor).toBe(htmlFor);
-        app2.unmount();
-    });
-
     it('renders correct label and value when object is passed',()=>{
         const app = mount(<Label value={{htmlFor:'myLabel',value:'This is to be shown'}}/>);
         expect(app.find(Label).length).toBe(1);
