@@ -13,4 +13,3 @@ export {
     RadioButton,
     SelectForm as Select
 };
-// export default DisconnectedComponents;

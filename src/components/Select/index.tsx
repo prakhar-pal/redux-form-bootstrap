@@ -5,19 +5,22 @@ import { Label } from '../Label';
 import withFormComponent from '../../common/withFormComponent';
 import { BaseFieldProps } from '../../common/interfaces/CommonProps';
 
+export interface SelectOption {
+    label: string;
+    value: string | number;
+}
 export interface SelectProps extends BaseFieldProps{
-    options: { label: string, value: string }[];
+    options: SelectOption[];
     noLabel?: boolean;
     label?: string | { htmlFor: string, value: any }
     filter?: Function;
-    value: string;
+    value: string|number;
     multiple?: boolean;
-    onChange: (value: string) => void;
-    onBlur: () => void;
+    onChange?: (value: string) => void;
     notSelectedText?: string;
 }
 
-class SelectForm extends React.Component<SelectProps, any>{
+export class SelectForm extends React.Component<SelectProps, any>{
     componentDidUpdate(oldProps:SelectProps){
         const { options } = this.props;
         if (oldProps.options.length !== options.length || !isEqual(oldProps.options, options)){
@@ -31,7 +34,7 @@ class SelectForm extends React.Component<SelectProps, any>{
                 {!noLabel && label ? <Label value={label} /> : null}
                 <Input
                     type="select"
-                    onChange={e => onChange(e.target.value)}
+                    onChange={e => onChange && onChange(e.target.value)}
                     multiple={multiple}
                     value={value}
                 >

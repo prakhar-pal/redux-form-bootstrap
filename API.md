@@ -1,7 +1,7 @@
 # Introduction
-This doc details the plan to build reusable [React](https://reactjs.org) components for HTML `form` that can be used with [redux-form](https://redux-form.com), difference being that all changes will be captured in these wrapper components and updated in redux state via redux-form.
+This doc details the plan to build reusable [React](https://reactjs.org) components for HTML `form` that can be used with [redux-form](https://redux-form.com).
 
-Dependecies are listed as below -
+Peer dependecies are listed as below -
 * react
 * redux-form
 * reactstrap (optional, meaning other styles can also be used)
@@ -9,11 +9,11 @@ Dependecies are listed as below -
   
 # Components
 
-These components will have some common props and respective similar behaviour in regards to how they are used. These props are listed as below -
+These components will have some common props, these props are listed as below -
 #### `label?: any`  
     refers to valid JSX that appears on top of the respective form field.
 #### `noLabel?: boolean` 
-    whether to show label, the string prop. It is a master check, meaning even if label is present, if noLabel is defined then that behaviour will take precedence.
+    decides whether to show label. It is a master check, meaning even if label is present, if noLabel is defined then that behaviour will take precedence.
 #### `filter?: Function`
     function to be provided by consumer component, to dictate saving behaviour.
 #### `onSave?: Function`
@@ -26,7 +26,7 @@ These components will have some common props and respective similar behaviour in
     to disallow change in current form field.
 
 ## 1. Input
-It will serve as replacement for HTML `input` tag.
+It serves as replacement for HTML `input` tag.
     
 Its expected behavior is outlined as below -
 
@@ -47,28 +47,26 @@ Its expected props are, but not limited to -
 
 
 ## 2. Select
-It will serve as replacement for HTML `select` tag.
+It serves as replacement for HTML `select` tag.
 
 Its expected behavior is outlined as below -
 
 1. Initial value should be null,
 2. Should ensure to be controlled component,
 3. Wrapper shouldn't have local state,
-4. Should have disabled as option,
-5. Should have option to clear selected value,
-6. Should allow initial value (also referred as default value) to be set,
-7. Default should be in the format of array containing objects. This default value should have value and label as mandatory keys,
-8.  Should close the drop down when user clicks outside of it
+4. Should allow initial value (also referred as default value) to be set,
+5. Default should be in the format of array containing objects. This default value should have value and label as mandatory keys,
+6. Should close the drop down when user clicks outside of it
 
 It's expected props are as described - 
 
 #### `options: []{label: string, value: string}`
-    array of  objects, each of which is has label, value as fiedls.
+    array of  objects, each of which is has label, value as fields.
 #### `defaultValue: {label: string, value: string}`
-    an object containing keys named label and value
+    an object with keys as label and value
 
-## 3. Async Select
-It should be able to fetch data from API provider and display according to query from user that is entered in input box.
+## 3. Radio
+It serves as replacement for HTML `radio` tag.
 
 1. Should only process data from fetchData, when result is an array of Objects, each of which has label and key as its properties,
 2. Should allow clearing selected value,
