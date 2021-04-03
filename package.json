@@ -1,6 +1,6 @@
 {
   "name": "redux-form-bootstrap",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Reusable UI components for redux-form, styled in bootstrap",
   "main": "build/index.js",
   "module": "build/index.es.js",
