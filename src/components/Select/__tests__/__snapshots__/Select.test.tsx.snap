@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders 1`] = `
+<FormGroup
+  tag="div"
+>
+  <Input
+    onChange={[Function]}
+    type="select"
+    value={1}
+  >
+    <option
+      value=""
+    >
+      Nothing is Selected
+    </option>
+    <option
+      key="1"
+      value={1}
+    >
+      1
+    </option>
+    <option
+      key="2"
+      value={2}
+    >
+      2
+    </option>
+  </Input>
+</FormGroup>
+`;
