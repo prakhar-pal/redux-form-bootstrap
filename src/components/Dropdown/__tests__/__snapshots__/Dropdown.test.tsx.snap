@@ -1,114 +1,198 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown Component renders 1`] = `
-<ButtonDropdown
-  direction="down"
-  isOpen={false}
-  toggle={[Function]}
->
-  <DropdownToggle
-    aria-haspopup={true}
-    caret={true}
-    color="info"
-    size="sm"
-  >
-    Select a name
-  </DropdownToggle>
-  <DropdownMenu
-    flip={true}
-    tag="div"
-  >
-    <DropdownItem
-      disabled={true}
-      divider={false}
-      header={false}
-      key="You haven't selected a name yet!_0"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="btn-group"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="dropdown-toggle btn btn-info btn-sm"
+          type="button"
+        >
+          Select a name
+        </button>
+        <div
+          aria-hidden="true"
+          class="dropdown-menu"
+          role="menu"
+          tabindex="-1"
+        >
+          <button
+            class="disabled dropdown-item"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            You haven't selected a name yet!
+          </button>
+          <h6
+            class="dropdown-header"
+            tabindex="-1"
+          >
+            Karen
+          </h6>
+          <div
+            class="dropdown-divider"
+            tabindex="-1"
+          />
+          <h6
+            class="dropdown-header"
+            tabindex="-1"
+          >
+            Gillian
+          </h6>
+          <div
+            class="dropdown-divider"
+            tabindex="-1"
+          />
+          <h6
+            class="dropdown-header"
+            tabindex="-1"
+          >
+            Bucky
+          </h6>
+          <div
+            class="dropdown-divider"
+            tabindex="-1"
+          />
+          <h6
+            class="dropdown-header"
+            tabindex="-1"
+          >
+            Bikrum
+          </h6>
+          <div
+            class="dropdown-divider"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="btn-group"
     >
-      You haven't selected a name yet!
-    </DropdownItem>
-    <DropdownItem
-      disabled={false}
-      divider={false}
-      header={true}
-      key="Karen_1"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    >
-      Karen
-    </DropdownItem>
-    <DropdownItem
-      disabled={false}
-      divider={true}
-      header={false}
-      key="DropdownItem_2"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    />
-    <DropdownItem
-      disabled={false}
-      divider={false}
-      header={true}
-      key="Gillian_3"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    >
-      Gillian
-    </DropdownItem>
-    <DropdownItem
-      disabled={false}
-      divider={true}
-      header={false}
-      key="DropdownItem_4"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    />
-    <DropdownItem
-      disabled={false}
-      divider={false}
-      header={true}
-      key="Bucky_5"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    >
-      Bucky
-    </DropdownItem>
-    <DropdownItem
-      disabled={false}
-      divider={true}
-      header={false}
-      key="DropdownItem_6"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    />
-    <DropdownItem
-      disabled={false}
-      divider={false}
-      header={true}
-      key="Bikrum_7"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    >
-      Bikrum
-    </DropdownItem>
-    <DropdownItem
-      disabled={false}
-      divider={true}
-      header={false}
-      key="DropdownItem_8"
-      onClick={[Function]}
-      tag="button"
-      toggle={true}
-    />
-  </DropdownMenu>
-</ButtonDropdown>
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dropdown-toggle btn btn-info btn-sm"
+        type="button"
+      >
+        Select a name
+      </button>
+      <div
+        aria-hidden="true"
+        class="dropdown-menu"
+        role="menu"
+        tabindex="-1"
+      >
+        <button
+          class="disabled dropdown-item"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          You haven't selected a name yet!
+        </button>
+        <h6
+          class="dropdown-header"
+          tabindex="-1"
+        >
+          Karen
+        </h6>
+        <div
+          class="dropdown-divider"
+          tabindex="-1"
+        />
+        <h6
+          class="dropdown-header"
+          tabindex="-1"
+        >
+          Gillian
+        </h6>
+        <div
+          class="dropdown-divider"
+          tabindex="-1"
+        />
+        <h6
+          class="dropdown-header"
+          tabindex="-1"
+        >
+          Bucky
+        </h6>
+        <div
+          class="dropdown-divider"
+          tabindex="-1"
+        />
+        <h6
+          class="dropdown-header"
+          tabindex="-1"
+        >
+          Bikrum
+        </h6>
+        <div
+          class="dropdown-divider"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
