@@ -1,32 +1,25 @@
 import * as React from "react";
-import { shallow } from "enzyme";
-import { Input as RSInput } from 'reactstrap';
+import '@testing-library/jest-dom/extend-expect';
+import { render } from '@testing-library/react';
 import { InputComponent as Input } from "..";
+import userEvent from "@testing-library/user-event";
 
 describe("Input Component", () => {
   it('should render correctly', () => {
     const fn = jest.fn();
-    const component = shallow(<Input type="text" onChange={fn} value="1"/>);
+    const component = render(<Input type="text" onChange={fn} value="1"/>);
     expect(component).toMatchSnapshot();
   });
 
-  it('has only one instance of reactstrap\'s Input ', () => {
-    const fn = jest.fn();
-    const app = shallow(<Input type="text" onChange={fn}/>);
-    expect(app.find(RSInput).length).toBe(1);
-  });
-
   it('calls change event handler', ()=>{
-    const fn = jest.fn();
-    const app = shallow(<Input type="text" onChange={fn}/>);
-    app.find(RSInput).simulate('change', { target: { value: 30} });
-    expect(fn.call.length).toBe(1);
+    const handleChange = jest.fn();
+    const app = render(<Input type="text" onChange={handleChange}/>);
+    userEvent.type(app.getByRole('textbox'), 'a');
+    expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
   it('set value correctly',()=>{
-    const fn = jest.fn();
-    const app = shallow(<Input type="text" onChange={fn} value={30}/>);
-    app.find(RSInput).simulate('change', { target: { value: 30} });
-    expect(fn.call.length).toBe(1);
+    const app = render(<Input type="text" onChange={jest.fn()} value={30}/>);
+    expect((app.getByRole('textbox') as any).value).toBe('30');
   })
 })
