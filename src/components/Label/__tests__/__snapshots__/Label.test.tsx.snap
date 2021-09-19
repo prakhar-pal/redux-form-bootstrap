@@ -4,6 +4,7 @@ exports[`Label renders object 1`] = `
 <Label
   for="myLabel"
   onClick={[Function]}
+  role="label"
   tag="label"
   widths={
     Array [
@@ -23,6 +24,7 @@ exports[`Label renders string 1`] = `
 <Label
   for="this is a label"
   onClick={[Function]}
+  role="label"
   tag="label"
   widths={
     Array [

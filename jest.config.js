@@ -1,4 +1,5 @@
 module.exports = {
+    "testEnvironment": "jest-environment-jsdom-fifteen",
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
     ],

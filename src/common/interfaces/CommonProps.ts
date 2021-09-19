@@ -3,8 +3,14 @@ export interface LabelObject {
     value: any 
 }
 
+export type LabelValue = string | LabelObject;
+
+export function instanceOfLabelObject(object: any): boolean {
+    return 'htmlFor' in object && 'value' in object;
+}
+
 export interface LabelProps {
-    value: string | LabelObject;
+    value: LabelValue;
     className?: string;
     onClick?: Function;
     noLabel?: boolean;
