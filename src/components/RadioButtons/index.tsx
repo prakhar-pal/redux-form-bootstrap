@@ -31,7 +31,7 @@ export class RadioButtonsForm extends React.Component<RadioButtonsProps, any>{
                         <input type="radio" value={option}
                             checked={value === option}
                             {...rest}
-                            onClick={() => onChange(option)}
+                            onChange={() => onChange(option)}
                         />
                     </div>
                     <Label value={option} className="ml-1"
