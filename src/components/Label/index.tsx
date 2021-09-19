@@ -11,6 +11,7 @@ export const Label: React.FunctionComponent<LabelProps> = function Label(props) 
     const labelValue = labelInfo && labelInfo.labelValue;
     return (
         <RSLabel
+            role="label"
             for={labelFor.toString()}
             className={className}
             onClick={()=> onClick && onClick()}

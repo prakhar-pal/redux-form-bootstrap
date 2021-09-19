@@ -3,7 +3,8 @@ import { FormGroup, Input } from 'reactstrap';
 import isEqual from 'lodash.isequal';
 import { Label } from '../Label';
 import withFormComponent from '../../common/withFormComponent';
-import { BaseFieldProps } from '../../common/interfaces/CommonProps';
+import { BaseFieldProps, LabelValue } from '../../common/interfaces/CommonProps';
+import getIdFromLabel from '../../utils/getIdFromLabel';
 
 export interface SelectOption {
     label: string;
@@ -12,7 +13,7 @@ export interface SelectOption {
 export interface SelectProps extends BaseFieldProps{
     options: SelectOption[];
     noLabel?: boolean;
-    label?: string | { htmlFor: string, value: any }
+    label?: LabelValue;
     filter?: Function;
     value: string|number;
     multiple?: boolean;
@@ -33,6 +34,8 @@ export class SelectForm extends React.Component<SelectProps, any>{
             <FormGroup>
                 {!noLabel && label ? <Label value={label} /> : null}
                 <Input
+                    data-testid="select-option"
+                    id={label && getIdFromLabel(label)}
                     type="select"
                     onChange={e => onChange && onChange(e.target.value)}
                     multiple={multiple}

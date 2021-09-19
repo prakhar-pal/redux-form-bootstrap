@@ -1,25 +1,27 @@
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
+import '@testing-library/jest-dom/extend-expect';
+import { render } from '@testing-library/react';
 import { Label } from '../index';
 describe('Label',()=>{
     it('renders string',()=>{
-        const app = shallow(<Label value="this is a label"/>);
+        const app = render(<Label value="this is a label"/>);
         expect(app).toMatchSnapshot();
     })
     it('renders object',()=>{
-        const app = shallow(<Label value={{htmlFor:'myLabel',value:'This is to be shown'}}/>);
+        const app = render(<Label value={{htmlFor:'myLabel',value:'This is to be shown'}}/>);
         expect(app).toMatchSnapshot();
     })
 
     it('renders correct label and value when object is passed',()=>{
-        const app = mount(<Label value={{htmlFor:'myLabel',value:'This is to be shown'}}/>);
-        expect(app.find(Label).length).toBe(1);
-        expect(app.find('[htmlFor="myLabel"]').length).toBe(1);
-        app.unmount();
-
-        const app2 = mount(<Label value='myLabel'/>);
-        expect(app2.find(Label).length).toBe(1);
-        expect(app2.find('[htmlFor="myLabel"]').length).toBe(1);
-        app2.unmount();
+        const labelText = 'This is to be shown';
+        const app = render(<Label value={{htmlFor:'myLabel',value: labelText}}/>);
+        expect(app.getByText(labelText)).toBeInTheDocument();
+        expect(document.querySelector('[for="myLabel"]')).toBeInTheDocument();
     });
+
+    it('render text label', () => {
+        const app = render(<Label value='myLabel'/>);
+        expect(app.getByText('myLabel')).toBeInTheDocument();
+        expect(document.querySelector('[for="myLabel"]')).toBeInTheDocument();
+    })
 });
