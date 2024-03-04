@@ -10,7 +10,7 @@ This npm package is a drop in replacement for form component that can be used wi
 - RadioButton
 
 ### How to use
- Examples for usage are given [here](https://github.com/lawki/redux-form-bootstrap-examples)
+ Examples for usage can be found in the examples folder 
 
  Additionally, this repo includes API.md which should help one better understand given examples + discover extra functionality.
 
