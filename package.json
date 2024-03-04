@@ -1,38 +1,78 @@
 {
-  "name": "redux-form-bs-examples",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "dummy-react-npm-module": "file:../../others-projects/react-module",
+  "name": "redux-form-bootstrap",
+  "version": "0.0.5",
+  "description": "Reusable UI components for redux-form, styled in bootstrap",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "scripts": {
+    "build": "rimraf build && rollup -c",
+    "build:watch": "rollup -c --watch",
+    "test": "jest --config jest.config.js",
+    "prepack": "ENV=production npm run build",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawki/redux-form-ui-bs.git"
+  },
+  "keywords": [
+    "redux-form",
+    "react",
+    "redux"
+  ],
+  "author": "Prakhar Pal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lawki/redux-form-ui-bs/issues"
+  },
+  "homepage": "https://github.com/lawki/redux-form-ui-bs#readme",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "reactstrap": "^8.0.1",
+    "redux-form": "^8.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.2.0",
+    "@types/classnames": "^2.2.9",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^26.0.23",
+    "@types/lodash.isequal": "^4.5.5",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/redux-form": "^8.1.5",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "^24.9.0",
+    "jest-environment-jsdom": "^26.6.2",
+    "jest-environment-jsdom-fifteen": "^1.0.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
-    "reactstrap": "^8.0.1",
-    "redux": "^4.0.4",
+    "react-scripts-ts": "^3.1.0",
+    "react-test-renderer": "^16.9.0",
     "redux-form": "^8.2.6",
-    "redux-form-bootstrap": "file:../../redux-form-bootstrap"
+    "rimraf": "^3.0.0",
+    "rollup": "^2.44.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.6.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash.isequal": "^4.5.0",
+    "reactstrap": "^8.0.1"
   }
 }
